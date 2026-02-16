@@ -32,7 +32,9 @@ public class LoginServlet extends HttpServlet {
 
         if (loggedUser != null) {
             HttpSession session = req.getSession();
-            session.setAttribute("username", loggedUser.getName());
+            String fullName = loggedUser.getName();
+            String firstName = fullName.split(" ")[0];
+            session.setAttribute("username", firstName);
             resp.sendRedirect("Homepage.jsp");
         } else {
             resp.sendRedirect("login.jsp?error=1");

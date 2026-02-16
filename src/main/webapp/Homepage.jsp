@@ -48,7 +48,12 @@ nav ul li a:hover {
   background: rgba(255, 255, 255, 0.1);
   color: rgba(0, 35, 122, 0.7);
 }
-
+nav ul li:last-child a {
+	color: white;
+	background: linear-gradient(90deg, #00c6ff, #0072ff);
+	border-radius: 6px;
+	padding: 10px 16px;
+}
 
 .odin-title {
 	font-size: 60px;
@@ -82,7 +87,10 @@ background-position
 	transform: translateY(-5px);
 	transition: 0.3s;
 }
+
+
 </style>
+<link rel="stylesheet" href="logout.css">
 </head>
 <body>
 
@@ -101,10 +109,11 @@ background-position
       <a href="#">Services</a>
     </li>
     <li>
-      <a href="logout">Logout</a>
+<a href="#" onclick="openLogout(event)">Logout</a>
     </li>
   </ul>
 </nav>
+
 	<div class="container py-5">
 		<div class="row align-items-center">
 
@@ -119,50 +128,77 @@ background-position
 				</h3>
 			</div>
 
-			<!-- RIGHT SIDE -->
-			<div class="col-12 col-lg-8">
-				<div class="row g-4">
+<div class="col-12 col-lg-8">
+    <div class="row g-4">
 
-					<div class="col-12 col-sm-6 col-xl-4">
-						<a href="java.jsp" class="text-decoration-none">
-							<div class="card p-4 text-center shadow h-100">Java</div>
-						</a>
-					</div>
+        <div class="col-12 col-md-6 col-xl-4">
+            <a href="java.jsp" class="text-decoration-none">
+                <div class="card p-4 text-center shadow h-100">Java</div>
+            </a>
+        </div>
 
-					<div class="col-12 col-sm-6 col-xl-4">
-						<a href="javascript" class="text-decoration-none">
-							<div class="card p-4 text-center shadow h-100">Javascript</div>
-						</a>
-					</div>
+        <div class="col-12 col-md-6 col-xl-4">
+            <a href="javascript" class="text-decoration-none">
+                <div class="card p-4 text-center shadow h-100">Javascript</div>
+            </a>
+        </div>
 
-					<div class="col-12 col-sm-6 col-xl-4">
-						<a href="mysql.jsp" class="text-decoration-none">
-							<div class="card p-4 text-center shadow h-100">MySQL</div>
-						</a>
-					</div>
-					<div class="col-12 col-sm-6 col-xl-4">
-						<a href="java.jsp" class="text-decoration-none">
-							<div class="card p-4 text-center shadow h-100">Advance Java</div>
-						</a>
-					</div>
+        <div class="col-12 col-md-6 col-xl-4">
+            <a href="sql.jsp" class="text-decoration-none">
+                <div class="card p-4 text-center shadow h-100">PL/SQL</div>
+            </a>
+        </div>
 
-					<div class="col-12 col-sm-6 col-xl-4">
-						<a href="spring.jsp" class="text-decoration-none">
-							<div class="card p-4 text-center shadow h-100">Hadoop</div>
-						</a>
-					</div>
+        <div class="col-12 col-md-6 col-xl-4">
+            <a href="java.jsp" class="text-decoration-none">
+                <div class="card p-4 text-center shadow h-100">Advance Java</div>
+            </a>
+        </div>
 
-					<div class="col-12 col-sm-6 col-xl-4">
-						<a href="mysql.jsp" class="text-decoration-none">
-							<div class="card p-4 text-center shadow h-100">Related
-								Project</div>
-						</a>
-					</div>
-				</div>
-			</div>
+        <div class="col-12 col-md-6 col-xl-4">
+            <a href="hadoop.jsp" class="text-decoration-none">
+                <div class="card p-4 text-center shadow h-100">Hadoop</div>
+            </a>
+        </div>
+
+        <div class="col-12 col-md-6 col-xl-4">
+            <a href="mysql.jsp" class="text-decoration-none">
+                <div class="card p-4 text-center shadow h-100">Related Project</div>
+            </a>
+        </div>
+
+    </div>
+</div>
+
 
 		</div>
 	</div>
+	<!-- LOGOUT DIALOG -->
+<div id="logoutModal" class="logout-modal">
+  <div class="logout-box">
+    <h4>Do you want to log out?</h4>
+    <div class="mt-3">
+      <button class="btn btn-danger" onclick="confirmLogout()">Yes, Logout</button>
+      <button class="btn btn-secondary" onclick="closeLogout()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function openLogout(e) {
+  e.preventDefault();
+  document.getElementById("logoutModal").classList.add("show");
+}
+
+function closeLoWgout() {
+  document.getElementById("logoutModal").classList.remove("show");
+}
+
+function confirmLogout() {
+  window.location.href = "logout";
+}
+</script>
+
 	
 	
 </body>
